@@ -22,7 +22,7 @@
             overflow: hidden;
         }
 
-        /* Background Image */
+        /* Background Photo */
         body::before {
             content: "";
             position: absolute;
@@ -43,24 +43,24 @@
         }
 
         h1 {
-            font-size: 2.5em;
+            font-size: 2.3em;
             margin-bottom: 15px;
         }
 
         p {
-            font-size: 1.2em;
-            margin: 10px 0;
+            font-size: 1.1em;
+            margin: 8px 0;
         }
 
         h2 {
             margin-top: 25px;
-            font-size: 1.8em;
+            font-size: 1.6em;
         }
 
         button {
             padding: 12px 25px;
-            font-size: 1.1em;
-            margin: 15px;
+            font-size: 1em;
+            margin: 10px;
             border: none;
             border-radius: 30px;
             cursor: pointer;
@@ -78,6 +78,12 @@
             position: absolute;
         }
 
+        #musicBtn {
+            background-color: #ffffff33;
+            color: white;
+            backdrop-filter: blur(5px);
+        }
+
         button:hover {
             transform: scale(1.1);
         }
@@ -87,15 +93,16 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Rose Petals */
+        /* Rose Petals (CSS Based) */
         .petal {
             position: fixed;
-            top: -10px;
-            width: 25px;
-            height: 25px;
-            background-image: url('https://i.imgur.com/QZ6QG7p.png');
-            background-size: cover;
-            opacity: 0.85;
+            top: -20px;
+            width: 12px;
+            height: 12px;
+            background: radial-gradient(circle at 30% 30%, #ff6b81, #c44569);
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(45deg);
+            opacity: 0.8;
             animation: fall linear infinite;
             pointer-events: none;
         }
@@ -105,25 +112,29 @@
                 transform: translateY(110vh) rotate(360deg);
             }
         }
+
     </style>
 </head>
 
 <body>
 
-<!-- Background Music -->
-<iframe width="0" height="0"
-    src="https://www.youtube.com/embed/ClkzvshUTYQ?autoplay=1&mute=1&loop=1&playlist=ClkzvshUTYQ"
-    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+<!-- Hidden YouTube Music -->
+<iframe id="musicFrame" width="0" height="0"
+    src="https://www.youtube.com/embed/ClkzvshUTYQ?enablejsapi=1"
+    frameborder="0"
+    allow="autoplay; encrypted-media">
 </iframe>
 
 <div class="container">
     <h1>Parminder, My Forever ❤️</h1>
+
     <p>You work so hard every single day.</p>
-    <p>You carry so much strength and still come home with the softest heart.</p>
-    <p>Through every challenge, every laugh, every quiet moment...</p>
-    <p>You are still my safest place.</p>
+    <p>You carry strength and still love so gently.</p>
+    <p>You are my safest place.</p>
 
     <h2>Parminder, will you be my Valentine? 💕</h2>
+
+    <button id="musicBtn" onclick="playMusic()">Tap to Play Our Song 🎵</button><br>
 
     <button id="yesBtn" onclick="sayYes()">YES 😍</button>
     <button id="noBtn" onmouseover="moveButton()">No 😅</button>
@@ -150,7 +161,11 @@
         button.style.top = y + "px";
     }
 
-    /* Create Rose Petals */
+    function playMusic() {
+        var iframe = document.getElementById("musicFrame");
+        iframe.src = "https://www.youtube.com/embed/ClkzvshUTYQ?autoplay=1&loop=1&playlist=ClkzvshUTYQ";
+    }
+
     function createPetal() {
         const petal = document.createElement('div');
         petal.classList.add('petal');
