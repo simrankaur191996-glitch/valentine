@@ -16,6 +16,7 @@
             text-align: center;
             color: white;
             overflow: hidden;
+            cursor: pointer;
         }
 
         body::before {
@@ -38,9 +39,7 @@
         }
 
         h1 { font-size: 2.3em; margin-bottom: 15px; }
-
         p { font-size: 1.1em; margin: 8px 0; }
-
         h2 { margin-top: 25px; font-size: 1.6em; }
 
         button {
@@ -80,10 +79,26 @@
                 transform: translateY(110vh) rotate(360deg);
             }
         }
+
+        .tap-hint {
+            position: absolute;
+            bottom: 30px;
+            width: 100%;
+            font-size: 0.9em;
+            opacity: 0.8;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.4; }
+            50% { opacity: 1; }
+            100% { opacity: 0.4; }
+        }
+
     </style>
 </head>
 
-<body>
+<body onclick="startMusicOnce()">
 
 <audio id="bgMusic" loop>
     <source src="song.mp3" type="audio/mpeg">
@@ -98,13 +113,19 @@
 
     <h2>Parminder, will you be my Valentine? 💕</h2>
 
-    <button onclick="playMusic()">Play Our Song 🎵</button>
     <button onclick="sayYes()">YES 😍</button>
 </div>
 
+<div class="tap-hint">Tap anywhere ❤️</div>
+
 <script>
-    function playMusic() {
-        document.getElementById("bgMusic").play();
+    let musicStarted = false;
+
+    function startMusicOnce() {
+        if (!musicStarted) {
+            document.getElementById("bgMusic").play();
+            musicStarted = true;
+        }
     }
 
     function sayYes() {
