@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For My Forever ❤️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                url('photo.jpg') no-repeat center center/cover;
+            filter: blur(3px);
+            z-index: -1;
+        }
+
+        .container {
+            padding: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        h2 {
+            margin-top: 30px;
+            font-size: 1.8em;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 1.1em;
+            margin: 15px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #yesBtn {
+            background-color: #ff4d6d;
+            color: white;
+        }
+
+        #noBtn {
+            background-color: white;
+            color: #ff4d6d;
+            position: absolute;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Music -->
+<iframe id="ytmusic" width="0" height="0"
+    src="https://www.youtube.com/embed/ClkzvshUTYQ?autoplay=1&mute=1&loop=1&playlist=ClkzvshUTYQ"
+    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+</iframe>
+
+<div class="container">
+    <h1>My Love ❤️</h1>
+    <p>From the moment we held hands...</p>
+    <p>To every long drive and beautiful day...</p>
+    <p>You are still my favorite person.</p>
+
+    <h2>Will you be my Valentine? 💕</h2>
+
+    <button id="yesBtn" onclick="sayYes()">YES 😍</button>
+    <button id="noBtn" onmouseover="moveButton()">No 😅</button>
+</div>
+
+<script>
+    function sayYes() {
+        document.body.innerHTML = `
+            <div style="height:100vh;display:flex;justify-content:center;align-items:center;
+            flex-direction:column;background:linear-gradient(to bottom right,#ff758c,#ff7eb3);
+            color:white;text-align:center;font-family:Segoe UI;">
+                <h1>Forever & Always ❤️</h1>
+                <p>You just made me the happiest wife alive.</p>
+                <p>I love you endlessly.</p>
+            </div>
+        `;
+    }
+
+    function moveButton() {
+        var button = document.getElementById("noBtn");
+        var x = Math.random() * window.innerWidth;
+        var y = Math.random() * window.innerHeight;
+        button.style.left = x + "px";
+        button.style.top = y + "px";
+    }
+</script>
+
+</body>
+</html>
