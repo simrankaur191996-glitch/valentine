@@ -129,16 +129,13 @@
     }
 
     function sayYes() {
-        document.body.innerHTML = `
-            <div style="height:100vh;display:flex;justify-content:center;align-items:center;
-            flex-direction:column;background:linear-gradient(to bottom right,#ff758c,#ff7eb3);
-            color:white;text-align:center;font-family:Segoe UI;">
-                <h1>Forever & Always, Parminder ❤️</h1>
-                <p>You just made me the happiest wife alive.</p>
-                <p>I love you endlessly.</p>
-            </div>
-        `;
-    }
+    const container = document.querySelector('.container');
+    container.innerHTML = `
+        <h1>Forever & Always, Parminder ❤️</h1>
+        <p>You just made me the happiest wife alive.</p>
+        <p>I love you endlessly.</p>
+    `;
+}
 
     function createPetal() {
         const petal = document.createElement('div');
